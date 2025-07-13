@@ -163,37 +163,4 @@ void quit(threads_stats *t_stats, int exit_status)
 }
 
 
-/*int block(int connfd, int is_vip)
-{
-    Request request = malloc(sizeof(struct request));
-    if (!request)
-    {
-        quit(NULL, 1);
-    }
-
-    request->connfd = connfd;
-    gettimeofday(&request->arrival, NULL);
-
-    pthread_mutex_lock(&waiting_queue_m);
-
-    while (all_requests >= request_limit)
-    {
-        pthread_cond_wait(&free_space, &waiting_queue_m);
-    }
-   
-    all_requests++;
-
-    if (is_vip){
-        queue_enqueue(&waiting_vip_queue, request);
-        pthread_cond_signal(&vip_not_empty);
-    }
-    else {
-        queue_enqueue(&waiting_reg_queue, request);
-        if (waiting_vip_queue->size == 0)
-            pthread_cond_signal(&reg_not_empty__vip_empty);
-    }
-
-    pthread_mutex_unlock(&waiting_queue_m);
-    return 0;
-}*/
 
